@@ -17,7 +17,7 @@ const router = express.Router();
 router.post("/create-product", authMiddleware, isAdmin, createProduct);
 
 router.put(
-    "/upload/:id",
+    "/upload",
     authMiddleware,
     isAdmin,
     uploadPhoto.array("images", 10),
