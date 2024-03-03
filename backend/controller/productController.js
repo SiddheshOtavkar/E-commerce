@@ -203,10 +203,8 @@ const ratingController = asyncHandler(async (req, res) => {
     }
 });
 
-const uploadImages = asyncHandler(async (req, res) => {
-    // console.log(req.files);
-    const { id } = req.params;
-    validateMongoDbId(id);
+const uploadImages = asyncHandler(async (req, res) => 
+{
     try {
         const uploader = (path) => cloudinaryUploadImg(path, "images");
         const urls = [];
@@ -224,12 +222,22 @@ const uploadImages = asyncHandler(async (req, res) => {
                 console.error('Error deleting file:', unlinkError.message);
             }
         }
-        const findProduct = await productModel.findByIdAndUpdate(id, {
-            images: urls.map((file) => {
-                return file;
-            })
-        }, { new: true });
-        res.json(findProduct);
+
+        const images = urls.map((file) => {
+            return file;
+        })
+        res.json(images);
+    }
+    catch (error) {
+        throw new Error(error);
+    }
+});
+
+const deleteImages = asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    try {
+        const deleted = cloudinaryDeleteImg(id, "images");
+        res.json({ message: "Deleted" });
     } catch (error) {
         throw new Error(error);
     }
@@ -243,5 +251,6 @@ module.exports = {
     deleteProduct,
     addToWishlist,
     ratingController,
-    uploadImages
+    uploadImages,
+    deleteImages,
 }
