@@ -5,7 +5,9 @@
 }
 
 :root {
-  
+  --color-131921: #131921;
+  --color-3b4149: #3b4149;
+  --color-febd69: #febd69;
 }
 
 body {
@@ -17,41 +19,29 @@ a {
   display: inline-block;
 }
 
-/* .App {
-  text-align: center;
+.form-control:focus {
+    box-shadow: none;
+    border-color: inherit;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header Part */
+
+.header-top-strip {
+  border-bottom: 1px solid var(--color-3b4149);
+  background-color: var(--color-131921);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header-upper {
+    background-color: var(--color-131921);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header-upper .input-group-text {
+    background-color: var(--color-febd69);
 }
 
-.App-link {
-  color: #61dafb;
+.header-upper .header-upper-links img {
+  width: 35px;
+  height: 35px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+/* Header Part Ends Here */
